@@ -98,7 +98,7 @@ public:
   {
     uint32_t pos = (page - 1) * CHUNK_SIZE;
 
-    if (m_writingFile && false)
+    if (m_writingFile)
     {
       uint8_t buf[CHUNK_SIZE];
 
