@@ -170,8 +170,8 @@ private:
     BLE_DEBUG_PRINTLN(F("bleInit"));
     BLEDevice::init(WLED_BLE_2_JSON_NAME);
     BLEDevice::setCustomGattsHandler(gattServerEventHandler);
-    BLEDevice::setEncryptionLevel(ESP_BLE_SEC_ENCRYPT);
-    BLEDevice::setSecurityCallbacks(new SecurityCallback());
+    // BLEDevice::setEncryptionLevel(ESP_BLE_SEC_ENCRYPT);
+    // BLEDevice::setSecurityCallbacks(new SecurityCallback());
 
     pServer = BLEDevice::createServer();
     pServer->setCallbacks(new ServerCallback());
@@ -205,7 +205,7 @@ private:
                                                         pServer);
 
     BLEDevice::startAdvertising();
-    bleSecurity(passkey);
+    // bleSecurity(passkey);
   }
 
   void checkUnPair()

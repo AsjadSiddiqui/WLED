@@ -12,7 +12,7 @@
 #include <BLE2902.h>
 #include <BLE2904.h>
 
-#define CHUNK_SIZE 512
+#define CHUNK_SIZE 20
 
 class BleComms;
 
@@ -54,7 +54,7 @@ private:
             BLECharacteristic::PROPERTY_WRITE |
             BLECharacteristic::PROPERTY_NOTIFY);
 
-    pCharacteristic->setAccessPermissions(ESP_GATT_PERM_READ_ENCRYPTED | ESP_GATT_PERM_WRITE_ENCRYPTED);
+    pCharacteristic->setAccessPermissions(ESP_GATT_PERM_READ | ESP_GATT_PERM_WRITE);
     pCharacteristic->setCallbacks(this);
     pCharacteristic->setValue("");
     BLE2902 *myBLE2902 = new BLE2902();
@@ -98,7 +98,7 @@ public:
   {
     uint32_t pos = (page - 1) * CHUNK_SIZE;
 
-    if (m_writingFile)
+    if (m_writingFile && false)
     {
       uint8_t buf[CHUNK_SIZE];
 
@@ -165,7 +165,8 @@ public:
       uint32_t page = 1;
       while (m_writing)
       {
-        writeNext(page, m_notify);
+        // writeNext(page, m_notify);
+        writeNext(page, m_data);
         page++;
       }
     }

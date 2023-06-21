@@ -3,7 +3,7 @@
 #include "wled.h"
 #include "BleMainSwitch.h"
 
-#define PASSKEY 999999
+#define PASSKEY 152346
 
 /*
  * usermod to add bluetooth low energy interface to wled
@@ -40,6 +40,7 @@ public:
     m_mainSwitch = new BleMainSwitch(this);
 
     m_mainSwitch->setup();
+    setBleOnFlag(true);
   }
 
   /*
