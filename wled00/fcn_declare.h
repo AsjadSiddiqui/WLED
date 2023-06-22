@@ -129,6 +129,7 @@ bool deserializeState(JsonObject root, byte callMode = CALL_MODE_DIRECT_CHANGE, 
 void serializeSegment(JsonObject& root, Segment& seg, byte id, bool forPreset = false, bool segmentBounds = true);
 void serializeState(JsonObject root, bool forPreset = false, bool includeBri = true, bool segmentBounds = true, bool selectedSegmentsOnly = false);
 void serializeInfo(JsonObject root);
+void serializeEffects(JsonObject root);
 void serializeModeNames(JsonArray arr);
 void serializeModeData(JsonArray arr);
 void serveJson(AsyncWebServerRequest* request);

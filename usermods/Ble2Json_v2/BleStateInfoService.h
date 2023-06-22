@@ -29,10 +29,12 @@ protected:
     if (!requestJSONBufferLock(100))
       return false;
     JsonObject state = doc.createNestedObject("state");
-    JsonObject info = doc.createNestedObject("info");
+    // JsonObject info = doc.createNestedObject("info");
+    // JsonObject effects = doc.createNestedObject("effects");
 
     serializeState(state);
-    serializeInfo(info);
+    // serializeInfo(info);
+    // serializeEffects(effects);
 
     bool ret = comms->writeData(doc.as<JsonObject>(), notify);
 

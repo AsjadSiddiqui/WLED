@@ -745,6 +745,14 @@ void serializeInfo(JsonObject root)
   root["ip"] = s;
 }
 
+void serializeEffects(JsonObject root) {
+  JsonArray fx = root.createNestedArray("effects");
+  for (uint8_t i = 0; i < strip.getModeCount(); i++) {
+    const char* name = strip.getModeData(i);
+    if (name != nullptr) fx.add(name);
+  }
+}
+
 void setPaletteColors(JsonArray json, CRGBPalette16 palette)
 {
     for (int i = 0; i < 16; i++) {
